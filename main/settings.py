@@ -43,12 +43,16 @@ INSTALLED_APPS = [
     # Third party apps:
     'rest_framework',
     'drf_yasg',
+    'debug_toolbar',
     
     # My apps:
 
 ]
 
 MIDDLEWARE = [
+    # for debug toolbar
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
