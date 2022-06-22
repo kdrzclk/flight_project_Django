@@ -45,4 +45,7 @@ urlpatterns = [
 
     # Url path for debug toolbar
     path('__debug__/', include('debug_toolbar.urls')),
+
+    # dj_rest_auth
+    path('users/', include('users.urls')),
 ]
