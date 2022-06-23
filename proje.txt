@@ -1,0 +1,14 @@
+1- env'yi kur,
+2- active et ve .env dosyasını ayarla,
+3- djangorestframework'ü kur,
+4- proje oluştur(main),
+5- requirements.txt'yi oluştur,
+6- migrate yap,
+7- runserver yap,
+8- postgres -> pip install psycogs2, postgres için gerekli olan şeyleri .env dosyasına ekle,
+9- swagger -> pip install drf_yasg,
+10- debug toolbar -> pip install django-debug-toolbar
+11- settings.py dosyasını klasöre çevir ve dev ve prod dosyalarını ekle,
+12- logger kodlarını base.py dpsyasına ekle,
+13- createsuperuser oluştur,
+14- 
