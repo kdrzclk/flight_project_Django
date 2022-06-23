@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Flight(models.Model):
     flight_number = models.CharField(max_length=10)
@@ -20,3 +21,8 @@ class Passenger(models.Model):
 
     def __str__(self):
         return f'{self.first_name} - {self.last_name}'
+
+class Reservation(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    passenger = models.ManyToManyField(Passenger, related_name='passengers')
+    flight = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name='reservations')
