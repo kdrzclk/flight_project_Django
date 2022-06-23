@@ -48,4 +48,7 @@ urlpatterns = [
 
     # dj_rest_auth
     path('users/', include('users.urls')),
+
+    # flight app
+    path('flight/', include('flight.urls')),
 ]
