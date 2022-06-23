@@ -11,7 +11,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     )
     password = serializers.CharField(
         write_only=True,
-        # required=True,
+        required=True,
         validators=[validate_password],
         style={"input_type": "password"}
     )
@@ -67,3 +67,5 @@ class CustomTokenSerializer(TokenSerializer):
             "key",
             "user"
         )
+
+

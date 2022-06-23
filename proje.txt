@@ -11,4 +11,17 @@
 11- settings.py dosyasını klasöre çevir ve dev ve prod dosyalarını ekle,
 12- logger kodlarını base.py dpsyasına ekle,
 13- createsuperuser oluştur,
-14- 
+14- users app oluştur -> python manage.py startapp users, base.py INSTALLED_APP'e ekle,
+15- authentication için thir party olan dj-rest-auth paketini yükle -> pip install dj-rest-auth, INSTALLED_APP'e 'rest_framework', 'dj_framework.authtoken', 'dj_rest_auth' ekle, migrate yap, main.urls'e path('users/', include('users.urls)) ekle, users.urls'e path('auth/', include('dj_rest_auth.urls')) ekle,
+16- serializers.py dosyası oluştur ve RegisterSerializer oluştur,
+17- views.py dosyasında RegisterView oluştur,
+18- users.urls dosyasına path('register/', RegisterView.as_view(), name='register') ekle,
+19- base.py dosyasına REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+} ekle,
+20- Login olduğumuzda bize token oluşurması için signal kullanacağız bunun için users app içerine signals.py dosyası oluştur, apps.py dosyası içerisine gerekli kodları ekle,
+21- kullanıcı login olduğunda token ile başka bilgilerder göndermek için TokenSerializer'ı override etmemiz gerekiyor bunun için kendimiz custom olarak UserSerializer oluştururuz ardından CustomTokenSerializer da oluştururuz, base.py dosyasına da REST_AUTH_SERIALIZERS = {
+    'TOKEN_SERIALIZER': 'users.serializers.CustomTokenSerializer',
+} ekle,
